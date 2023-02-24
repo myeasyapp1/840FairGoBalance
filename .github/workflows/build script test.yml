@@ -33,12 +33,3 @@ jobs:
       with:
         name: ${{ env.APP_NAME }}
         path: build/Android
-        
-    - uses: BetaHuhn/do-spaces-action@v2
-      with:
-        out_dir: ${{ secrets.SOURCE_DIR}}
-        access_key: ${{ secrets.ACCESS_KEY}}
-        secret_key: ${{ secrets.SECRET_KEY }}
-        space_name: ${{ secrets.SPACE_NAME }}
-        space_region: ${{ secrets.SPACE_REGION }}
-        source: build/Android/${{ env.APP_NAME }}.apk
