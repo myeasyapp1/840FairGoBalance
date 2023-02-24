@@ -5,7 +5,7 @@ env:
   UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
   UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
 
-  APP_NAME: template name
+  APP_NAME: template_name
 
 jobs:
   buildAndroidAPK:
