@@ -37,6 +37,10 @@ jobs:
       fail-fast: false
       
     steps:
+    
+      - name: Log keystore
+        run: echo base64 ${{ github.workspace }}/user.keystore
+        
       - name: Checkout
         uses: actions/checkout@v2.4.2
           
