@@ -46,9 +46,9 @@ jobs:
         androidAppBundle: false
         androidKeystoreName: user.keystore
         androidKeystoreBase64: ${{needs.EncodeKeystoreToBase64.outputs.encoding}}
-        androidKeystorePass: ${{ env.AndroidKeystorePass }}
-        androidKeyaliasName: ${{ env.AndroidKeyaliasName }}
-        androidKeyaliasPass: ${{ env.AndroidKeyaliasPass }}
+        androidKeystorePass: ${{ secrets.androidKeystorePass }}
+        androidKeyaliasName: ${{ secrets.androidKeyaliasName }}
+        androidKeyaliasPass: ${{ secrets.androidKeystorePass }}
         targetPlatform: Android
         
     - uses: actions/upload-artifact@v2
@@ -80,9 +80,9 @@ jobs:
           androidAppBundle: true
           androidKeystoreName: user.keystore
           androidKeystoreBase64: ${{needs.EncodeKeystoreToBase64.outputs.encoding}}
-          androidKeystorePass: ${{ env.AndroidKeystorePass }}
-          androidKeyaliasName: ${{ env.AndroidKeyaliasName }}
-          androidKeyaliasPass: ${{ env.AndroidKeyaliasPass }}
+          androidKeystorePass: ${{ secrets.androidKeystorePass }}
+          androidKeyaliasName: ${{ secrets.androidKeyaliasName }}
+          androidKeyaliasPass: ${{ secrets.androidKeystorePass }}
           targetPlatform: Android
           
       - uses: actions/upload-artifact@v2
