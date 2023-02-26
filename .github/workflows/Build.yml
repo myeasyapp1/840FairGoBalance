@@ -94,3 +94,8 @@ jobs:
     name: endpoint
     runs-on: ubuntu-latest
     needs: [buildAndroidAPK,buildAndroidAAB]
+    
+    steps:
+    
+      - name: Log
+        run: echo "endpoint"
