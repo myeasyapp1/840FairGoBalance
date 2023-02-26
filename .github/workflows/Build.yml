@@ -31,7 +31,7 @@ jobs:
         path: build/Android
         
   buildAndroidAAB:
-    name: Build for Android(AAB)
+    name: Compile AAB
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
