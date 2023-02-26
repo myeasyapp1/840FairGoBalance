@@ -29,3 +29,37 @@ jobs:
       with:
         name: ${{ env.APP_NAME }}
         path: build/Android
+        
+  buildAndroidAAB:
+    name: Build for Android(AAB)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        targetPlatform:
+          - Android
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.4.2
+          
+      - uses: actions/cache@v2
+        with:
+          path: Library
+          key: Library-${{ matrix.targetPlatform }}
+          restore-keys: Library-
+          
+      - uses: game-ci/unity-builder@v2.1.2
+        with:
+          buildName: ${{ env.APP_NAME }}
+          androidAppBundle: true
+          androidKeystoreName: user.keystore
+          androidKeystoreBase64: base64 ${{ github.workspace }}/user.keystore
+          androidKeystorePass: ${{ env.AndroidKeystorePass }}
+          androidKeyaliasName: ${{ env.AndroidKeyaliasName }}
+          androidKeyaliasPass: ${{ env.AndroidKeyaliasPass }}
+          targetPlatform: ${{ matrix.targetPlatform }}
+          
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ${{ env.APP_NAME }}
+          path: build/Android
