@@ -16,6 +16,11 @@ jobs:
     name: runner1_name
     runs-on: ubuntu-latest
     needs: EntryPoint
+    strategy:
+      fail-fast: false
+      matrix:
+        targetPlatform:
+          - Android
     
     steps:
     
@@ -26,6 +31,11 @@ jobs:
     name: runner2_name
     runs-on: ubuntu-latest
     needs: EntryPoint
+    strategy:
+      fail-fast: false
+      matrix:
+        targetPlatform:
+          - Android
     
     steps:
     
